@@ -1,650 +1,985 @@
-<function_calls>
-<invoke name="artifacts">
-<parameter name="content"><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parmeshwar Chaurasia - QA Engineer</title>
+    <title>Parmeshwar Chaurasia | QA Engineer</title>
     <style>
         :root {
-            --primary-color: #0366d6;
-            --secondary-color: #24292e;
-            --accent-color: #2ea44f;
-            --light-color: #f6f8fa;
-            --dark-color: #24292e;
+            --primary-color: #2563eb;
+            --secondary-color: #1e293b;
+            --accent-color: #10b981;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-Copy    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #f9f9f9;
-    }
-    
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    header {
-        background-color: var(--primary-color);
-        color: white;
-        padding: 2rem 0;
-        text-align: center;
-    }
-    
-    .profile-img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 5px solid white;
-        margin-bottom: 1rem;
-        object-fit: cover;
-    }
-    
-    .profile-name {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .profile-title {
-        font-size: 1.2rem;
-        opacity: 0.9;
-    }
-    
-    nav {
-        background-color: var(--secondary-color);
-        padding: 1rem 0;
-    }
-    
-    nav ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-    }
-    
-    nav ul li {
-        margin: 0 15px;
-    }
-    
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-    }
-    
-    nav ul li a:hover {
-        color: var(--accent-color);
-    }
-    
-    section {
-        padding: 3rem 0;
-    }
-    
-    .section-title {
-        text-align: center;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        color: var(--secondary-color);
-    }
-    
-    .about-content {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .about-text {
-        flex: 1;
-        min-width: 300px;
-    }
-    
-    .skills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-    
-    .skill-tag {
-        background-color: var(--primary-color);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-    }
-    
-    .experience-item, .education-item {
-        margin-bottom: 2rem;
-        border-left: 3px solid var(--primary-color);
-        padding-left: 1.5rem;
-        position: relative;
-    }
-    
-    .experience-item:before, .education-item:before {
-        content: '';
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: var(--primary-color);
-        left: -9px;
-        top: 5px;
-    }
-    
-    .experience-date, .education-date {
-        font-size: 0.9rem;
-        color: #666;
-        margin-bottom: 0.5rem;
-    }
-    
-    .experience-title, .education-degree {
-        font-size: 1.3rem;
-        margin-bottom: 0.3rem;
-        color: var(--secondary-color);
-    }
-    
-    .experience-company, .education-school {
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-    }
-    
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-    
-    .project-card {
-        background-color: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-    
-    .awards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-    
-    .award-card {
-        background-color: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        padding: 1.5rem;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .award-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-    
-    .award-title {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-        color: var(--secondary-color);
-    }
-    
-    .skill-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-    
-    .skill-category {
-        background-color: white;
-        border-radius: 10px;
-        padding: 1.5rem;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .skill-category h3 {
-        margin-bottom: 1rem;
-        color: var(--secondary-color);
-        border-bottom: 2px solid var(--primary-color);
-        padding-bottom: 0.5rem;
-    }
-    
-    .skill-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-    
-    .contact-form {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
-    
-    .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-    }
-    
-    .form-group input, .form-group textarea {
-        width: 100%;
-        padding: 0.8rem;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-family: inherit;
-        font-size: 1rem;
-    }
-    
-    .form-group textarea {
-        min-height: 150px;
-        resize: vertical;
-    }
-    
-    .btn {
-        display: inline-block;
-        background-color: var(--primary-color);
-        color: white;
-        padding: 0.8rem 2rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background-color 0.3s;
-    }
-    
-    .btn:hover {
-        background-color: #0255b3;
-    }
-    
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-    
-    .social-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        background-color: var(--primary-color);
-        color: white;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        transition: background-color 0.3s;
-        text-decoration: none;
-    }
-    
-    .social-link:hover {
-        background-color: #0255b3;
-    }
-    
-    .contact-info {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-    
-    .contact-info p {
-        margin: 0.5rem 0;
-    }
-    
-    .contact-info i {
-        margin-right: 0.5rem;
-        color: var(--primary-color);
-    }
-    
-    footer {
-        background-color: var(--secondary-color);
-        color: white;
-        text-align: center;
-        padding: 2rem 0;
-    }
-    
-    .footer-text {
-        margin-bottom: 1rem;
-    }
-    
-    @media (max-width: 768px) {
-        .profile-name {
-            font-size: 2rem;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--light-color);
         }
         
-        nav ul {
-            flex-direction: column;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            color: white;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(135deg, transparent 25px, var(--light-color) 0);
+            background-size: 50px 100%;
+        }
+        
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-name {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        .profile-title {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .profile-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
         
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
         nav ul li {
-            margin: 5px 0;
+            margin: 0 0.25rem;
+        }
+        
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1rem 1.25rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            display: block;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-color);
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .about-content {
-            flex-direction: column;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 900px;
+            margin: 0 auto;
         }
-    }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .cta-btn.secondary {
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .cta-btn.secondary:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+        
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 1.25rem;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .skill-category h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .skill-tag {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #e5e7eb;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .experience-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 100%;
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .experience-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            width: calc(50% - 2rem);
+            z-index: 1;
+            transition: transform 0.3s;
+        }
+        
+        .experience-content:hover {
+            transform: translateY(-5px);
+        }
+        
+        .experience-item:nth-child(odd) .experience-content {
+            margin-left: auto;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .experience-item:nth-child(even) .experience-content {
+            margin-right: auto;
+            border-right: 5px solid var(--primary-color);
+        }
+        
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .experience-date {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .experience-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .experience-company {
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .experience-description {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .experience-points {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .experience-points li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .education-item {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-date {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .education-degree {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .education-school {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .award-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-color);
+        }
+        
+        .award-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .award-icon {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .award-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .award-description {
+            color: var(--text-secondary);
+            flex: 1;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-heading {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .contact-detail:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-value {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 12px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .footer-text {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-link:hover {
+            opacity: 1;
+        }
+        
+        .back-to-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-5px);
+        }
+        
+        /* Interest Section */
+        .interests-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .interests-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .interest-item {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .interest-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .interest-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .interest-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-top: 0.5rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .experience-timeline::before {
+                left: 2rem;
+            }
+            
+            .experience-item::after {
+                left: 2rem;
+                transform: none;
+            }
+            
+            .experience-content {
+                width: calc(100% - 4rem);
+                margin-left: 4rem !important;
+            }
+            
+            .experience-item:nth-child(even) .experience-content {
+                border-right: none;
+                border-left: 5px solid var(--primary-color);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-stats {
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: all 0.3s;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+                width: 80%;
+            }
+            
+            nav ul li a {
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .profile-name {
+                font-size: 2.25rem;
+            }
+            
+            .profile-title {
+                font-size: 1.25rem;
+            }
+            
+            .experience-timeline::before,
+            .experience-item::after {
+                display: none;
+            }
+            
+            .experience-content {
+                width: 100%;
+                margin-left: 0 !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="/api/placeholder/150/150" alt="Parmeshwar Chaurasia" class="profile-img">
-            <h1 class="profile-name">Parmeshwar Chaurasia</h1>
-            <p class="profile-title">Associate Lead Quality Assurance Engineer</p>
+            <div class="profile-container">
+                <img src="/api/placeholder/180/180" alt="Parmeshwar Chaurasia" class="profile-img">
+                <div class="profile-info">
+                    <h1 class="profile-name">Parmeshwar Chaurasia</h1>
+                    <p class="profile-title">Associate Lead Quality Assurance Engineer</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="cta-btn">
+                            <i class="fas fa-envelope"></i> Contact Me
+                        </a>
+                        <a href="resume.pdf" class="cta-btn secondary" id="downloadCV" download>
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-value">7+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">20+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">6+</div>
+                            <div class="stat-label">Awards</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
-Copy<nav>
-    <div class="container">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#awards">Awards</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
 
-<section id="about">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Hello! I'm Parmeshwar Chaurasia, an Associate Lead Quality Assurance Engineer with extensive experience in designing, developing, and maintaining robust automation frameworks using tools like Selenium, Cucumber, and Karate for API/UI automation.</p>
-                <p>I'm proficient in performance testing, Docker containerization, and configuring CI/CD pipelines with Jenkins for seamless integration. I have a strong background in cloud-based testing on AWS and agile methodologies, driving efficient and high-quality software delivery.</p>
-                <p>When I'm not working, you can find me reading non-fiction books or playing badminton. I believe in continuous learning and bringing a passionate approach to quality assurance that ensures exceptional software delivery.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="skills" style="background-color: #f5f5f5;">
-    <div class="container">
-        <h2 class="section-title">Skills</h2>
-        
-        <div class="skill-grid">
-            <div class="skill-category">
-                <h3>Programming Languages</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Core Java</span>
-                    <span class="skill-tag">Python</span>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>UI Automation</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Selenium</span>
-                    <span class="skill-tag">Karate UI</span>
-                    <span class="skill-tag">Appium</span>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>API Automation</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Karate API</span>
-                    <span class="skill-tag">Rest Assured</span>
-                    <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">SOAP UI</span>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Testing Frameworks</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Cucumber</span>
-                    <span class="skill-tag">TestNG</span>
-                    <span class="skill-tag">Performance Testing</span>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>DevOps & CI/CD</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Jenkins</span>
-                    <span class="skill-tag">Maven</span>
-                    <span class="skill-tag">Gradle</span>
-                    <span class="skill-tag">Git</span>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Database & Others</h3>
-                <div class="skill-list">
-                    <span class="skill-tag">Database Testing</span>
-                    <span class="skill-tag">Snowflake DB</span>
-                    <span class="skill-tag">JIRA</span>
-                    <span class="skill-tag">Agile</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="experience">
-    <div class="container">
-        <h2 class="section-title">Work Experience</h2>
-        
-        <div class="experience-item">
-            <div class="experience-date">March 2020 - Present</div>
-            <h3 class="experience-title">Associate Lead Quality Assurance Engineer</h3>
-            <div class="experience-company">Clarivate - Bangalore</div>
-            <p>Clarivate is a British-American publicly traded analytics company that specializes in providing transformative intelligence across various sectors, including academia, intellectual property, and life sciences.</p>
-            <ul style="margin-top: 10px; margin-left: 20px;">
-                <li>Worked with stakeholders and team members on quality assurance efforts for product.</li>
-                <li>Created test cases and test scripts to maintain cohesive team approach to product development.</li>
-                <li>Designed and developed comprehensive test frameworks to enhance software quality.</li>
-                <li>Trained and mentored junior QA engineers, contributing to their professional growth and skill development.</li>
-                <li>Implemented the Karate framework, reducing automation efforts by 70% and enhancing operational efficiency.</li>
-                <li>Self-taught and implemented a PowerBI dashboard to improve data analysis and visualization capabilities.</li>
-                <li>Facilitated knowledge sharing sessions among team members for cross-training purposes.</li>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">PC</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#awards" class="nav-link">Awards</a></li>
+                <li><a href="#interests" class="nav-link">Interests</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
-        
-        <div class="experience-item">
-            <div class="experience-date">July 2018 - March 2020</div>
-            <h3 class="experience-title">Senior Software Engineer (Test)</h3>
-            <div class="experience-company">Tech Mahindra - Bangalore</div>
-            <p>Project Title: Thomson Reuters (ProView)</p>
-            <ul style="margin-top: 10px; margin-left: 20px;">
-                <li>Designed, developed, and maintained comprehensive Web/UI and mobile automation frameworks (Android and iOS) using Appium to ensure efficient and scalable testing solutions.</li>
-                <li>Configured CI/CD pipelines with Jenkins, integrating GitHub and GitLab for seamless version control and automation.</li>
-                <li>Utilized Docker to run tests on containerized environments in AWS, ensuring consistency and scalability in testing.</li>
-                <li>Managed multiple projects simultaneously while maintaining strict deadlines and high-quality standards.</li>
-            </ul>
-        </div>
-        
-        <div class="experience-item">
-            <div class="experience-date">June 2015 - July 2018</div>
-            <h3 class="experience-title">Software Test Engineer</h3>
-            <div class="experience-company">DXC Technology (formally known as Hewlett Packard Enterprise) - Bangalore</div>
-            <p>Project Title: American Airlines</p>
-            <p>American Airlines is one of the largest global airlines, offering a wide range of domestic and international flights. It is known for its extensive network, providing high-quality service and modern amenities to travelers.</p>
-            <ul style="margin-top: 10px; margin-left: 20px;">
-                <li>Automated functional test cases using Selenium and Appium for both web and mobile applications.</li>
-                <li>Performed data-driven testing, cross-browser testing, and parallel test execution to ensure comprehensive test coverage and faster execution.</li>
-                <li>Conducted regression testing, analyzed results, and submitted observations to development team.</li>
-                <li>Coordinated regression test automation activities across supported applications.</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    </nav>
 
-<section id="education" style="background-color: #f5f5f5;">
-    <div class="container">
-        <h2 class="section-title">Education</h2>
-        
-        <div class="education-item">
-            <div class="education-date">July 2010 - June 2014</div>
-            <h3 class="education-degree">B.Tech in Computer Science Engineering</h3>
-            <div class="education-school">DR Ambedkar Institute of Technology For Divyangjan - Kanpur, Uttar Pradesh</div>
-        </div>
-
-    </div>
-</section>
-<section id="education" style="background-color: #f5f5f5;">
-    <div class="container">
-        <h2 class="section-title">Certifications</h2>
-        
-        <div class="education-item">
-            <div class="education-date">April 2024</div>
-            <h3 class="education-degree">ISTQB Certified Tester Foundation Level (CTFL)</h3>
-        </div>
-
-    </div>
-</section>
-
-<section id="education" style="background-color: #f5f5f5;">
-    <div class="container">
-        <h2 class="section-title">Interests</h2>
-        
-        <div class="education-item">  
-        <ul style="margin-top: 10px; margin-left: 20px;">
-                <li>Reading non-fiction books</li>
-                <li>Playing badminto</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
-
-<section id="awards">
-    <div class="container">
-        <h2 class="section-title">Honor Awards</h2>
-        
-        <div class="awards-grid">
-            <div class="award-card">
-                <h3 class="award-title">Passion for Customer and Client Focused</h3>
-                <p>Recognized by DXC Technology for consistently prioritizing client satisfaction and delivering exceptional results.</p>
-            </div>
-            
-            <div class="award-card">
-                <h3 class="award-title">Above and Beyond Award</h3>
-                <p>Awarded by American Airlines (Client) for extraordinary support, proactivity, and ownership of critical tasks, ensuring successful project delivery.</p>
-            </div>
-            
-            <div class="award-card">
-                <h3 class="award-title">PAT on the Back Award</h3>
-                <p>Recognized by Tech Mahindra for successfully integrating Docker, AWS, and Jenkins into the automation framework, enhancing efficiency and scalability.</p>
-            </div>
-            
-            <div class="award-card">
-                <h3 class="award-title">Best Team Award</h3>
-                <p>Recognized by Tech Mahindra for contributing to multiple successful releases, demonstrating teamwork and collaboration.</p>
-            </div>
-            
-            <div class="award-card">
-                <h3 class="award-title">Budding Superstar Award</h3>
-                <p>Awarded by Clarivate for outstanding contributions and performance in the team.</p>
-            </div>
-            
-            <div class="award-card">
-                <h3 class="award-title">Team of the Year Award</h3>
-                <p>Received by Clarivate for exceptional team performance, delivering outstanding results in challenging projects.</p>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Parmeshwar Chaurasia, an Associate Lead Quality Assurance Engineer with 7+ years of experience in designing, developing, and maintaining robust automation frameworks. My expertise spans across UI/API test automation using Selenium, Cucumber, and Karate, performance testing, and DevOps integration.</p>
+                    
+                    <p>I excel in building scalable test solutions that enhance software quality and reduce time-to-market. My approach combines technical excellence with strategic thinking to deliver exceptional results. I'm passionate about implementing innovative QA approaches that align with business objectives.</p>
+                    
+                    <p>When I'm not ensuring software quality, you can find me reading non-fiction books or playing badminton. I believe in continuous learning and bringing a passionate approach to quality assurance that ensures exceptional software delivery.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact" style="background-color: #f5f5f5;">
-    <div class="container">
-        <h2 class="section-title">Contact Me</h2>
-        
-        <div class="contact-info">
-            <p><i class="fas fa-envelope"></i> param26.ch@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +91 7984274681/9019301584</p>
-            <p><i class="fas fa-map-marker-alt"></i> Bangalore, KA 560066</p>
-        </div>
-        <!--
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+    <section id="skills" style="background-color: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
             
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-        -->
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/parmeshwar-chaurasia-3" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://bold.pro/my/parmeshwar-chaurasia-250308103652/283r" target="_blank" class="social-link"><i class="fas fa-globe"></i></a>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p class="footer-text">© 2025 Parmeshwar Chaurasia. All Rights Reserved.</p>
-       
-    </div>
-</footer>
-
-<script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            window.scrollTo({
-                top: targetElement.offsetTop - 70,
-                behavior: 'smooth'
-            });
-        });
-    });
-    
-    // Form submission handling (for demonstration)
-    const contactForm = document.querySelector('.contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('This is a demo form. In a real implementation, this would send your message.');
-        this.reset();
-    });
-</script>
-</body>
-</html>
-</parameter>
-<parameter name="language"></parameter>
-</invoke>
+            <div class="skill-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Core Java</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-desktop"></i> UI Automation</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">Karate UI</span>
+                        <span class="skill-tag">Appium</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-exchange-alt"></i> API Automation</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Karate API</span>
+                        <span class="skill-tag">Rest Assured</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">SOAP UI</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-vial"></i> Testing Frameworks</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Cucumber</span>
+                        <span class="skill-tag">TestNG</span>
+                        <span class="skill-tag">Performance Testing</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> DevOps & CI/CD</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">Gradle</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Database & Others</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Database Testing</span>
+                        <span class="skill-tag">Snowflake DB</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">Agile</span>
+                    </div>
+                    
