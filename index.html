@@ -204,20 +204,16 @@
         }
         
 		.about-text p {
-		    color: #2c2c2c; /* or try #1a1a1a for even sharper text */
-		    line-height: 1.6; /* improves readability */
-		    font-size: 16px;  /* adjust depending on your design */
+		    color: var(--text-secondary); /* or #2c2c2c if not using a variable */
+		    line-height: 1.6;
+		    font-size: 1.1rem;  /* or 16px if you prefer */
+		    margin-bottom: 1rem;
 		}
-        
-        .about-text p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        
-        .about-text p:last-child {
-            margin-bottom: 0;
-        }
+		
+		.about-text p:last-child {
+		    margin-bottom: 0;
+		}
+
         
         .cta-buttons {
             display: flex;
