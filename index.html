@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parmeshwar Chaurasia | QA Engineer</title>
+	<!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX'); // Replace with your actual Google Analytics ID
+    </script>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -729,7 +737,40 @@
             background-color: var(--primary-color);
             border-radius: 4px;
         }
+                /* Visitor Counter */
+        .visitor-counter {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 98;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
         
+        .visitor-counter:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15);
+        }
+        
+        .visitor-counter i {
+            font-size: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .visitor-count {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
         /* Responsive */
         @media (max-width: 992px) {
             .experience-timeline::before {
@@ -1257,3 +1298,117 @@
         </div>
     </div>
 </section>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter" id="visitorCounter">
+        <i class="fas fa-eye"></i>
+        <span>Visitors: <span class="visitor-count" id="visitorCount">0</span></span>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Visitor Counter
+        function updateVisitorCount() {
+            // Get current date
+            const today = new Date().toDateString();
+            const lastVisit = localStorage.getItem('lastVisitDate');
+            
+            // Check if it's a new day or first visit
+            if (lastVisit !== today) {
+                let totalVisits = parseInt(localStorage.getItem('totalVisits') || '0');
+                totalVisits += 1;
+                localStorage.setItem('totalVisits', totalVisits.toString());
+                localStorage.setItem('lastVisitDate', today);
+            }
+            
+            // Display the count
+            const visits = localStorage.getItem('totalVisits') || '1';
+            document.getElementById('visitorCount').textContent = visits;
+        }
+
+        // Back to Top functionality
+        function initBackToTop() {
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Mobile Menu Toggle
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        }
+
+        // Smooth Scrolling for Navigation
+        function initSmoothScrolling() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close mobile menu if open
+                    const navLinksContainer = document.getElementById('navLinks');
+                    if (navLinksContainer) {
+                        navLinksContainer.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Initialize all functions when page loads
+        window.addEventListener('load', () => {
+            updateVisitorCount();
+            initBackToTop();
+            initMobileMenu();
+            initSmoothScrolling();
+        });
+
+        // Track Google Analytics page view
+        function trackPageView() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    page_title: document.title,
+                    page_location: window.location.href
+                });
+            }
+        }
+
+        // Call tracking function
+        trackPageView();
+    </script>
+</body>
+</html>
